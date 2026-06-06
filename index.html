@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>West Bay Cafe & Beach Bar — Premium Digital Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #0B0F19;
+    --midnight-surface: #131A2C;
+    --midnight-card: #1C243B;
+    --gold: #D4AF37;
+    --gold-glow: rgba(212, 175, 55, 0.15);
+    --gold-hover: #F3E5AB;
+    --jade: #10B981;
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --text-primary: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --whatsapp: #25D366;
+    --shadow-3d: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* PREMIUM HERO HERO */
+  .hero {
+    background: radial-gradient(circle at 50% 0%, #1e2942 0%, var(--obsidian) 70%);
+    padding: 50px 24px 40px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid var(--glass-border);
+    perspective: 1000px;
+  }
+  .hero-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px var(--gold-glow);
+    background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=200&h=200&fit=crop') center/cover;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--gold); font-style: italic; }
+  .hero p {
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero-subnotice {
+    font-size: 11px;
+    color: #ef4444;
+    max-width: 320px;
+    margin: 15px auto 0;
+    line-height: 1.4;
+  }
+
+  /* APPLE MAPS APPLE STYLE BLURRED NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 15, 25, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 10px 0;
+  }
+  .nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 16px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+  .nav-scroll::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 10px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-btn:hover, .nav-btn.active {
+    color: var(--obsidian);
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 4px 15px var(--gold-glow);
+    transform: translateY(-1px);
+  }
+
+  /* MODERN SEARCH */
+  .search-wrap { padding: 24px 16px 8px; }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: var(--midnight-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    padding: 12px 20px;
+    gap: 12px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .search-box input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    outline: none;
+  }
+  .search-box input::placeholder { color: #4B5563; }
+  .search-icon { color: var(--gold); font-size: 16px; }
+
+  /* CRISP SECTION HEADERS */
+  .section-header {
+    padding: 40px 16px 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+    color: #ffffff;
+  }
+  .section-header span {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 8px 16px 24px;
+    opacity: 0.3;
+  }
+
+  /* 3D KINETIC CARDS GRID */
+  .menu-grid {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .menu-card {
+    background: var(--midnight-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    box-shadow: var(--shadow-3d);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  .menu-card:active {
+    transform: scale(0.98) translateY(2px);
+  }
+  .menu-card.featured {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: linear-gradient(145deg, var(--midnight-card) 0%, #151e33 100%);
+  }
+  
+  .card-img-wrap {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .menu-card:hover .card-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .card-top-content {
+    display: flex;
+    padding: 18px 18px 12px;
+    gap: 16px;
+  }
+  .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .card-bottom-action {
+    background: rgba(11, 15, 25, 0.4);
+    border-top: 1px solid var(--glass-border);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* ADVANCED TOGGLE SWITCH PILLS */
+  .size-picker {
+    display: flex;
+    background: var(--obsidian);
+    padding: 4px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    gap: 2px;
+  }
+  .size-pill {
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+  }
+  .size-pill.active {
+    background: var(--midnight-card);
+    color: var(--gold);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  .card-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  
+  .order-btn {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    transition: all 0.2s;
+  }
+  .order-btn:active { transform: scale(0.95); }
+
+  .featured-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--gold);
+    color: var(--obsidian);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+  }
+
+  /* GRID DRINKS SYSTEM */
+  .drinks-grid {
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .drink-card {
+    background: var(--midnight-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    padding: 20px 14px;
+    text-align: center;
+    box-shadow: var(--shadow-3d);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .drink-card:active { transform: scale(0.96); }
+  .drink-card:hover { border-color: rgba(212, 175, 55, 0.3); }
+  .drink-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  .drink-price { font-size: 16px; color: var(--gold); font-weight: 600; }
+
+  /* DYNAMIC CART FLOATING MECHANISM */
+  .cart-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 24px;
+    z-index: 300;
+    background: linear-gradient(135deg, var(--gold) 0%, #b89223 100%);
+    color: var(--obsidian);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 32px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+  }
+  .cart-fab.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
+  .cart-badge {
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    border: 2px solid var(--gold);
+    transition: transform 0.2s;
+  }
+
+  /* SLIDE OVER SYSTEM COVERS */
+  .cart-overlay {
+    position: fixed; inset: 0;
+    background: rgba(11, 15, 25, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 400;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-drawer {
+    position: fixed;
+    top: 0; right: 0;
+    height: 100%;
+    width: min(420px, 100vw);
+    background: var(--midnight-surface);
+    border-left: 1px solid var(--glass-border);
+    z-index: 401;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+  }
+  .cart-drawer.open { transform: translateX(0); }
+
+  .cart-drawer-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cart-drawer-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; }
+  .cart-close-btn {
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .cart-items-list { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .cart-empty { text-align: center; color: var(--text-muted); padding: 60px 20px; font-size: 15px; }
+
+  .cart-item {
+    background: var(--midnight-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+  .cart-item-addon { font-size: 12px; color: var(--gold); font-style: italic; margin-bottom: 4px; }
+  .cart-item-price { font-size: 14px; color: var(--text-muted); margin-bottom: 8px;}
+  
+  /* DROPDOWN STYLING FOR SEQUENCE */
+  .cart-item-sequence {
+    background: var(--obsidian);
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 6px 8px;
+    font-size: 11px;
+    width: 100%;
+    outline: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+  }
+  .cart-item-sequence:focus {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .cart-item-controls { display: flex; align-items: center; justify-content: flex-end; gap: 12px; height: 100%; margin-top: 4px; }
+  .qty-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .qty-btn.minus:hover { background: #ef4444; }
+  .qty-num { font-size: 15px; font-weight: 600; min-width: 20px; text-align: center; }
+
+  .cart-footer { border-top: 1px solid var(--glass-border); padding: 24px; background: var(--midnight-surface); }
+  .cart-table-input {
+    width: 100%; padding: 14px 20px; background: var(--obsidian);
+    border: 1px solid var(--glass-border); border-radius: 50px;
+    color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; margin-bottom: 16px; outline: none;
+  }
+  .cart-table-input:focus { border-color: var(--gold); }
+  .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .cart-total-price { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--gold); }
+
+  .cart-whatsapp-btn {
+    width: 100%; padding: 16px; background: var(--whatsapp); color: white;
+    border: none; border-radius: 50px; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; gap: 10px; box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+  }
+
+  /* GLASSMORPHIC COUNTER-UPSELL MODAL */
+  .upsell-overlay {
+    position: fixed; inset: 0;
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(12px);
+    z-index: 600;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .upsell-overlay.open { opacity: 1; pointer-events: all; }
+  .upsell-popup {
+    background: rgba(19, 26, 44, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 28px; padding: 30px 24px; width: 100%; max-width: 400px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    transform: scale(0.9) translateY(30px); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .upsell-overlay.open .upsell-popup { transform: scale(1) translateY(0); }
+
+  .upsell-salesman { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding: 14px; background: var(--obsidian); border-radius: var(--radius-md); border: 1px solid var(--glass-border); }
+  .upsell-avatar { font-size: 26px; }
+  .upsell-speech-text { font-size: 13.5px; color: #ffffff; font-style: italic; }
+
+  .upsell-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .upsell-option {
+    background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+    padding: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s;
+  }
+  .upsell-option.selected { border-color: var(--gold); background: rgba(212,175,55,0.06); }
+  .upsell-option-left { display: flex; align-items: center; gap: 12px; }
+
+  .upsell-actions { display: flex; gap: 12px; }
+  .upsell-skip { flex: 1; padding: 14px; background: transparent; border: 1px solid var(--glass-border); color: var(--text-muted); border-radius: 50px; font-weight: 600; cursor: pointer; }
+  .upsell-add { flex: 2; padding: 14px; background: var(--gold); color: var(--obsidian); border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+
+  /* NOTIFICATION TOAST */
+  .toast {
+    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--gold); color: var(--obsidian); padding: 14px 28px; border-radius: 50px;
+    font-size: 13px; font-weight: 700; z-index: 700; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+    opacity: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.3); white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+  /* BRAND FOOTER */
+  footer { margin-top: 60px; padding: 40px 24px; text-align: center; border-top: 1px solid var(--glass-border); background: var(--midnight-surface); }
+  footer .cafe-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #ffffff; margin-bottom: 4px; }
+  footer .tagline { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  footer .agency { font-size: 12px; color: #6B7280; letter-spacing: 0.5px; }
+  footer .agency strong { color: var(--gold); font-weight: 600; }
+
+  .no-results { padding: 50px 20px; text-align: center; color: var(--text-muted); font-size: 14px; display: none; }
+  section { scroll-margin-top: 70px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logo"></div>
+  <div class="hero-badge">Breakfast & Beach Bar</div>
+  <h1>West Bay <span>Cafe</span></h1>
+  <p>Freshly Prepared • All Day Dining • Beachfront Vibes</p>
+  <div class="hero-subnotice">⚠️ Allergen Notice: We cannot guarantee our kitchen and supplies are entirely allergen-free. Please notify staff of food intolerances.</div>
+</div>
+
+<div class="sticky-nav" id="stickyNav">
+  <div class="nav-scroll">
+    <button class="nav-btn active" onclick="scrollToSection('breakfast', event)">🍳 Breakfasts</button>
+    <button class="nav-btn" onclick="scrollToSection('mains', event)">🍽️ Main Meals</button>
+    <button class="nav-btn" onclick="scrollToSection('lighter', event)">🥪 Sandwiches & Snacks</button>
+    <button class="nav-btn" onclick="scrollToSection('kids', event)">🧸 Kids Menu</button>
+    <button class="nav-btn" onclick="scrollToSection('waffles', event)">🥞 Waffles</button>
+    <button class="nav-btn" onclick="scrollToSection('hot-drinks', event)">☕ Hot Drinks</button>
+    <button class="nav-btn" onclick="scrollToSection('plant-based', event)">🌱 Plant-Based Coffee</button>
+    <button class="nav-btn" onclick="scrollToSection('cold-drinks', event)">🍹 Cold Soft Drinks</button>
+    <button class="nav-btn" onclick="scrollToSection('alcohol', event)">🍺 Alcohol Menu</button>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search culinary items..." oninput="filterMenu()">
+  </div>
+</div>
+
+<div id="menuContent">
+
+<section id="breakfast">
+  <div class="section-header"><div><span>Morning Harvest</span><h2>Breakfasts</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="menu-grid">
+    
+    <div class="menu-card featured" data-name="Full English Breakfast" data-type="egg" data-price="10.95">
+      <div class="featured-badge">⭐ House Choice</div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=600&h=300&fit=crop" alt="Full English Breakfast">
+      </div>
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Full English Breakfast</div>
+          <div class="card-desc">2 free range eggs, 1 pork sausage, 2 back bacon, tomatoes, mushroom, baked beans, hash brown & toast.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£10.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Half English Breakfast" data-type="egg" data-price="8.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Half English Breakfast</div>
+          <div class="card-desc">Free range egg, 2 back bacon, 1 pork sausage, baked beans & toast.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£8.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Vegan Breakfast" data-type="egg" data-price="9.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Vegan Breakfast (VG)</div>
+          <div class="card-desc">2 vegan sausages, crushed avocado, tomatoes, mushrooms, baked beans, hash brown & toast.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£9.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Eggs Benedict" data-type="egg" data-price="9.45">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Eggs Benedict</div>
+          <div class="card-desc">English muffin, free range poached eggs, honey roasted gammon drizzled with caper hollandaise sauce & chives.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£9.45</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Eggs Florentine" data-type="egg" data-price="8.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Eggs Florentine (V)</div>
+          <div class="card-desc">English muffin, free range poached eggs, wilted spinach topped with a caper hollandaise sauce & chives.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£8.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Crushed Avocado on Toast" data-type="egg" data-price="9.65">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Crushed Avocado on Toast (VGO)</div>
+          <div class="card-desc">Served with poached eggs, tomatoes & zaatar & chives.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£9.65</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Two Eggs on Toast" data-type="egg" data-price="4.65">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Two Eggs on Toast</div>
+          <div class="card-desc">Your choice of poached, fried or scrambled eggs served on toasted bread.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£4.65</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Classic Toast Toppings" data-type="egg" data-price="3.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Mushrooms, Beans or Cheese on Toast (GFO)</div>
+          <div class="card-desc">Delicious hot breakfast layer items served on crisp toast. Select double up option for another slice.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 3.95, '')">Single Slice</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 6.45, ' + Extra Slice')">Double Up (+£2.50)</button>
+        </div>
+        <div class="card-price">£3.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Omelette & Chips" data-type="egg" data-price="9.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Omelette & Chips</div>
+          <div class="card-desc">Choose 2 fillings: Ham, Cheese, Mushrooms, Tomato, Onion, Bacon, Spinach.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£9.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Homemade Soup & Bread" data-type="egg" data-price="4.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Homemade Soup with Bread</div>
+          <div class="card-desc">Ask our service staff for our curated fresh Soup of the Day.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£4.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="mains">
+  <div class="section-header"><div><span>Artisan Kitchen</span><h2>Main Meals</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="menu-grid">
+
+    <div class="menu-card featured" data-name="Freshly Battered Cod" data-type="sandwich" data-price="12.95">
+      <div class="featured-badge">⭐ Bestseller</div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1580196969807-cc6de06c05be?w=600&h=300&fit=crop" alt="Freshly Battered Cod">
+      </div>
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Freshly Battered Cod</div>
+          <div class="card-desc">Served crispy with signature golden chips, fresh peas & house-made tartar sauce.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£12.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Homemade 6oz Beefburger" data-type="sandwich" data-price="11.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Homemade 6oz Beefburger</div>
+          <div class="card-desc">Topped with tomato, crisp lettuce, red onion, and burger sauce. Served alongside chips & homemade coleslaw.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 11.95, '')">Plain</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 12.95, ' + Cheese')">+ Cheese (+£1)</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 12.95, ' + Bacon')">+ Bacon (+£1)</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 13.95, ' + Cheese & Bacon')">Both (+£2)</button>
+        </div>
+        <div class="card-price">£11.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Honey Roast Gammon" data-type="sandwich" data-price="11.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Honey Roast Gammon</div>
+          <div class="card-desc">Served with 2 eggs & chips (GFO).</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£11.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Wholetail Scampi" data-type="sandwich" data-price="12.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Wholetail Scampi</div>
+          <div class="card-desc">Generous scampi portion served with chips, homemade tartar sauce & peas.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£12.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Vegan Burger" data-type="sandwich" data-price="11.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Vegan Burger (VG)</div>
+          <div class="card-desc">Garnished with fresh tomato, lettuce, house chutney & served with chips.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£11.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="lighter">
+  <div class="section-header"><div><span>Lighter Bites</span><h2>Sandwiches & Snacks</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="menu-grid">
+
+    <div class="menu-card" data-name="Sandwich or Toastie" data-type="sandwich" data-price="5.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Sandwich or Toastie (GFO)</div>
+          <div class="card-desc">Fresh option chosen from premium Ham, Cheese, Bacon, or Classic Pork Sausage fillings.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£5.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Baguette Choice" data-type="sandwich" data-price="6.65">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Fresh Baguettes</div>
+          <div class="card-desc">Crusty artisan baguette containing Ham, Cheese, Bacon, or Sausage. Add fresh sliced tomato or onion for 95p.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 6.65, '')">Standard</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 7.60, ' + Veg Add-ons')">+ Tomato/Onion (+95p)</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 8.15, ' + Extra Filling')">+ Extra Filling (+£1.50)</button>
+        </div>
+        <div class="card-price">£6.65</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Tuna Mayo Baguette" data-type="sandwich" data-price="7.45">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Tuna Mayo Baguette</div>
+          <div class="card-desc">Creamy flaked tuna mayonnaise inside a freshly cut baguette.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£7.45</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Tuna Mayo Cheese Melt Baguette" data-type="sandwich" data-price="7.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Tuna Mayo Cheese Melt Baguette</div>
+          <div class="card-desc">Gooey toasted signature mix combining tuna mayo and melted cheese matrix.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£7.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Round of Toast" data-type="sandwich" data-price="2.45">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Round of Toast (1 Brown, 1 White)</div>
+          <div class="card-desc">Served with rich churned butter alongside sweet jam or sweet marmalade spreads (GFO).</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£2.45</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Chips / Cheesy Chips" data-type="sandwich" data-price="3.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Golden Potato Chips (GFO)</div>
+          <div class="card-desc">Crisp, golden-fried thick chips. Upgrade to thick layer of melted cheese.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 3.95, ' (Plain)')">Plain Chips</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 4.95, ' (Cheesy)')">Cheesy Chips (+£1.00)</button>
+        </div>
+        <div class="card-price">£3.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="kids">
+  <div class="section-header"><div><span>Little Explorers</span><h2>Kids Menu</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="menu-grid">
+
+    <div class="menu-card" data-name="Kids 1 Sausage & Chips" data-type="sandwich" data-price="4.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">1 Sausage & Chips (VGO)</div>
+          <div class="card-desc">Sized perfectly for little appetites. High-quality single sausage with fries.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£4.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Kids Chicken Nuggets" data-type="sandwich" data-price="5.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Chicken Nuggets, Chips & Salad</div>
+          <div class="card-desc">Golden crisp tender breast meat pieces paired with fries and fresh salad garnish.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£5.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Kids Scampi" data-type="sandwich" data-price="6.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Kids Scampi, Chips & Salad</div>
+          <div class="card-desc">Light fried sweet whole-tail scampi bites served with crispy fries.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£6.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Kids Honey Roast Gammon" data-type="sandwich" data-price="6.45">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Honey Roasted Gammon, Egg & Chips (GFO)</div>
+          <div class="card-desc">Delicate kid-sized savory single egg, gammon strip and chip plate.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£6.45</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="waffles">
+  <div class="section-header"><div><span>Sweet Temptations</span><h2>Artisan Waffles</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="menu-grid">
+
+    <div class="menu-card featured" data-name="Sweet Belgian Waffles" data-type="egg" data-price="5.95">
+      <div class="featured-badge">🔥 Dessert King</div>
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1504382262782-5b4eae15fcce?w=600&h=300&fit=crop" alt="Sweet Belgian Waffles">
+      </div>
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Artisan Waffles (V)</div>
+          <div class="card-desc">Thick golden waffles. Select toppings: Savory Bacon, rich Maple Syrup, Nutella, Marshmallows, Honey, Flake Sprinkles, or sweet Dessert Sauces. Additional toppings available for £1 each.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 5.95, '')">1 Topping Included</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 6.95, ' + 1 Extra Topping')">+1 Topping (+£1)</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 7.95, ' + 2 Extra Toppings')">+2 Toppings (+£2)</button>
+        </div>
+        <div class="card-price">£5.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="hot-drinks">
+  <div class="section-header"><div><span>Barista Crafts</span><h2>Hot Tea & Coffee</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="drinks-grid">
+    <div class="drink-card" data-name="PG Tips Tea" data-price="1.95" onclick="addDrinkToCart('PG Tips Tea', 1.95, '🫖')">
+      <div class="drink-name">PG Tips Tea</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Earl Grey Tea" data-price="1.95" onclick="addDrinkToCart('Earl Grey Tea', 1.95, '🫖')">
+      <div class="drink-name">Earl Grey Tea</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Decaf Tea" data-price="1.95" onclick="addDrinkToCart('Decaf Tea', 1.95, '🫖')">
+      <div class="drink-name">Decaf Tea</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Specialty Fruit Tea" data-price="1.95" onclick="addDrinkToCart('Specialty Fruit Tea', 1.95, '🍋')">
+      <div class="drink-name">Fruit Tea Selection</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Green Tea Camomile" data-price="1.95" onclick="addDrinkToCart('Green Tea Camomile', 1.95, '🌿')">
+      <div class="drink-name">Green Tea Camomile</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Lemon, Red Berries or Bush Tea" data-price="1.95" onclick="addDrinkToCart('Lemon, Red Berries or Bush Tea', 1.95, '🍓')">
+      <div class="drink-name">Lemon / Red Berries / Red Bush</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Fresh Ground Americano" data-price="2.95" onclick="addDrinkToCart('Fresh Ground Americano', 2.95, '☕')">
+      <div class="drink-name">Fresh Ground Americano</div>
+      <div class="drink-price">£2.95</div>
+    </div>
+    <div class="drink-card" data-name="Fresh Ground Latte" data-price="3.00" onclick="addDrinkToCart('Fresh Ground Latte', 3.00, '☕')">
+      <div class="drink-name">Fresh Ground Latte</div>
+      <div class="drink-price">£3.00</div>
+    </div>
+    <div class="drink-card" data-name="Fresh Ground Cappuccino" data-price="3.25" onclick="addDrinkToCart('Fresh Ground Cappuccino', 3.25, '☕')">
+      <div class="drink-name">Fresh Ground Cappuccino</div>
+      <div class="drink-price">£3.25</div>
+    </div>
+    <div class="drink-card" data-name="Flat White" data-price="3.25" onclick="addDrinkToCart('Flat White', 3.25, '☕')">
+      <div class="drink-name">Flat White</div>
+      <div class="drink-price">£3.25</div>
+    </div>
+    <div class="drink-card" data-name="Mocha" data-price="3.35" onclick="addDrinkToCart('Mocha', 3.35, '☕')">
+      <div class="drink-name">Mocha</div>
+      <div class="drink-price">£3.35</div>
+    </div>
+    <div class="drink-card" data-name="Espresso" data-price="1.95" onclick="addDrinkToCart('Espresso', 1.95, '☕')">
+      <div class="drink-name">Espresso Shot</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Cadburys Drinking Chocolate" data-price="3.65" onclick="addDrinkToCart('Cadburys Drinking Chocolate', 3.65, '🍫')">
+      <div class="drink-name">Cadbury Hot Chocolate</div>
+      <div class="drink-price">£3.65</div>
+    </div>
+    <div class="drink-card" data-name="Nescafe Instant Latte" data-price="2.70" onclick="addDrinkToCart('Nescafe Instant Latte', 2.70, '☕')">
+      <div class="drink-name">Nescafe Instant Latte</div>
+      <div class="drink-price">£2.70</div>
+    </div>
+    <div class="drink-card" data-name="Decaf Instant Americano" data-price="2.50" onclick="addDrinkToCart('Decaf Instant Americano', 2.50, '☕')">
+      <div class="drink-name">Decaf Instant Americano</div>
+      <div class="drink-price">£2.50</div>
+    </div>
+  </div>
+</section>
+
+<section id="plant-based">
+  <div class="section-header"><div><span>Conscious Sips</span><h2>Plant-Based Drinks</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="drinks-grid">
+    <div class="drink-card" data-name="Soya/Oat Tea" data-price="2.25" onclick="addDrinkToCart('Soya/Oat Tea', 2.25, '🌱')">
+      <div class="drink-name">Soya / Oat Milk Tea</div>
+      <div class="drink-price">£2.25</div>
+    </div>
+    <div class="drink-card" data-name="Soya/Oat Latte" data-price="3.65" onclick="addDrinkToCart('Soya/Oat Latte', 3.65, '🌱')">
+      <div class="drink-name">Soya / Oat Milk Latte</div>
+      <div class="drink-price">£3.65</div>
+    </div>
+    <div class="drink-card" data-name="Soya/Oat Americano" data-price="3.45" onclick="addDrinkToCart('Soya/Oat Americano', 3.45, '🌱')">
+      <div class="drink-name">Soya / Oat Americano</div>
+      <div class="drink-price">£3.45</div>
+    </div>
+    <div class="drink-card" data-name="Soya Milk Mocha" data-price="4.55" onclick="addDrinkToCart('Soya Milk Mocha', 4.55, '🌱')">
+      <div class="drink-name">Soya Milk Mocha</div>
+      <div class="drink-price">£4.55</div>
+    </div>
+    <div class="drink-card" data-name="Soya/Oat Iced Coffee" data-price="5.75" onclick="addDrinkToCart('Soya/Oat Iced Coffee', 5.75, '❄️')">
+      <div class="drink-name">Soya / Oat Iced Coffee</div>
+      <div class="drink-price">£5.75</div>
+    </div>
+    <div class="drink-card" data-name="Soya/Oat Hot Chocolate" data-price="4.55" onclick="addDrinkToCart('Soya/Oat Hot Chocolate', 4.55, '🍫')">
+      <div class="drink-name">Soya / Oat Hot Choc</div>
+      <div class="drink-price">£4.55</div>
+    </div>
+  </div>
+</section>
+
+<section id="cold-drinks">
+  <div class="section-header"><div><span>Frosty Thirst Quenchers</span><h2>Cold Soft Drinks</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="drinks-grid">
+    <div class="drink-card" data-name="Draught Soft Pint" data-price="2.95" onclick="addDrinkToCart('Draught Soft Pint', 2.95, '🥤')">
+      <div class="drink-name">Draught Pint (Coke/Diet/Zero/Lemonade)</div>
+      <div class="drink-price">£2.95</div>
+    </div>
+    <div class="drink-card" data-name="Draught Soft Half" data-price="1.75" onclick="addDrinkToCart('Draught Soft Half', 1.75, '🥤')">
+      <div class="drink-name">Draught Half Pint</div>
+      <div class="drink-price">£1.75</div>
+    </div>
+    <div class="drink-card" data-name="Can Soda Selection" data-price="1.95" onclick="addDrinkToCart('Can Soda Selection', 1.95, '🥫')">
+      <div class="drink-name">Can (Coke, Sprite, Tango, Dr Pepper)</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Still Water" data-price="1.95" onclick="addDrinkToCart('Still Water', 1.95, '💧')">
+      <div class="drink-name">Still Water</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Sparkling Water" data-price="1.95" onclick="addDrinkToCart('Sparkling Water', 1.95, '🫧')">
+      <div class="drink-name">Sparkling Water</div>
+      <div class="drink-price">£1.95</div>
+    </div>
+    <div class="drink-card" data-name="Juiceburst Orange/Apple" data-price="3.25" onclick="addDrinkToCart('Juiceburst Orange/Apple', 3.25, '🧃')">
+      <div class="drink-name">Juiceburst Apple / Orange</div>
+      <div class="drink-price">£3.25</div>
+    </div>
+    <div class="drink-card" data-name="Fruit Shoot" data-price="1.60" onclick="addDrinkToCart('Fruit Shoot', 1.60, '🧃')">
+      <div class="drink-name">Fruit Shoot / Cartons</div>
+      <div class="drink-price">£1.60</div>
+    </div>
+    <div class="drink-card" data-name="Iced Latte" data-price="3.95" onclick="addDrinkToCart('Iced Latte', 3.95, '❄️')">
+      <div class="drink-name">Iced Latte</div>
+      <div class="drink-price">£3.95</div>
+    </div>
+    <div class="drink-card" data-name="Frappuccino" data-price="4.25" onclick="addDrinkToCart('Frappuccino', 4.25, '🍧')">
+      <div class="drink-name">Frappuccino (Strawberry/Choc)</div>
+      <div class="drink-price">£4.25</div>
+    </div>
+    <div class="drink-card" data-name="Coke Float" data-price="5.75" onclick="addDrinkToCart('Coke Float', 5.75, '🍨')">
+      <div class="drink-name">Coke Float (Marshfield Farm Scoop)</div>
+      <div class="drink-price">£5.75</div>
+    </div>
+    <div class="drink-card" data-name="Marshfield Dairy Milkshake" data-price="5.95" onclick="addDrinkToCart('Marshfield Dairy Milkshake', 5.95, '🥛')">
+      <div class="drink-name">Gourmet Milkshake (All Flavours)</div>
+      <div class="drink-price">£5.95</div>
+    </div>
+    <div class="drink-card" data-name="Real Fruit Smoothie" data-price="5.50" onclick="addDrinkToCart('Real Fruit Smoothie', 5.50, '🍓')">
+      <div class="drink-name">Smoothie (Big 5 / Coco Loco / Blueberry)</div>
+      <div class="drink-price">£5.50</div>
+    </div>
+  </div>
+</section>
+
+<section id="alcohol">
+  <div class="section-header"><div><span>Beach Bar Lounge</span><h2>Alcoholic Refreshments</h2></div></div>
+  <div class="section-divider"></div>
+  <div class="menu-grid">
+
+    <div class="menu-card" data-name="Draught Peroni" data-type="sandwich" data-price="5.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Draught Peroni</div>
+          <div class="card-desc">Ice-cold premium draft Italian lager. Select pour size.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 5.95, ' (Pint)')">Pint</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 2.95, ' (Half)')">Half Pint</button>
+        </div>
+        <div class="card-price">£5.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Draught Grolsch" data-type="sandwich" data-price="5.65">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Draught Grolsch</div>
+          <div class="card-desc">Crisp, refreshing European draught lager option.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 5.65, ' (Pint)')">Pint</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 2.85, ' (Half)')">Half Pint</button>
+        </div>
+        <div class="card-price">£5.65</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Draught IPA" data-type="sandwich" data-price="6.50">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Draught IPA</div>
+          <div class="card-desc">Bold aromatic micro-brew style India Pale Ale on draft line.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 6.50, ' (Pint)')">Pint</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 3.40, ' (Half)')">Half Pint</button>
+        </div>
+        <div class="card-price">£6.50</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Artisan Cocktails" data-type="sandwich" data-price="7.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Premium Cocktails (Draught/Mixed)</div>
+          <div class="card-desc">Choose from Passion Fruit Martini, Rich Espresso Martini, Strawberry Daiquiri, or Pink Martini.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£7.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="House Spirits" data-type="sandwich" data-price="3.50">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">House Spirit Measures</div>
+          <div class="card-desc">Vodka, Gin, Bacardi, Jack Daniels, Whiskey, Brandy, Dark Rum, Malibu, Archers, Tequila, Jaegermeister, etc.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="size-picker">
+          <button class="size-pill active" onclick="updateCardPrice(this, 3.50, ' (Single)')">Single</button>
+          <button class="size-pill" onclick="updateCardPrice(this, 4.95, ' (Double)')">Double Measure</button>
+        </div>
+        <div class="card-price">£3.50</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Corona 500ml Bottle" data-type="sandwich" data-price="4.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Corona 500ml Bottle</div>
+          <div class="card-desc">Imported cold lager served with crisp fresh lime wedge.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£4.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Bulmers Cider Bottle" data-type="sandwich" data-price="5.75">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Bulmers 500ml Cider</div>
+          <div class="card-desc">Classic crisp apple orchard bottled hard cider.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£5.75</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Old Mout Cider Bottle" data-type="sandwich" data-price="5.75">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Old Mout Cider 500ml</div>
+          <div class="card-desc">Premium flavored blended refreshing cider varieties.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£5.75</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Becks Blue Non-Alcoholic" data-type="sandwich" data-price="3.95">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Becks Blue 0% 330ml</div>
+          <div class="card-desc">Full crisp premium lager taste without any alcohol volume.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£3.95</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Guinness Microserve" data-type="sandwich" data-price="6.25">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Guinness Microserve</div>
+          <div class="card-desc">Flawless, smooth velvet nitrogenous dark stout draft pour alternative.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£6.25</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+    <div class="menu-card" data-name="Prosecco Glass" data-type="sandwich" data-price="6.50">
+      <div class="card-top-content">
+        <div class="card-body">
+          <div class="card-name">Prosecco Glass</div>
+          <div class="card-desc">Sparkling crisp premium white Italian grape wine flute. House choice White, Red, and Rosé options available daily.</div>
+        </div>
+      </div>
+      <div class="card-bottom-action">
+        <div class="card-price">£6.50</div>
+        <button class="order-btn" onclick="openUpsell(this)">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="no-results" id="noResults">Culinary item not discovered. Try a different keyword!</div>
+
+</div>
+
+<footer>
+  <div class="cafe-name">West Bay Cafe & Beach Bar</div>
+  <div class="tagline">All Outdoor Alcohol Requires Licensed Plastic Glassware. Thank you!</div>
+  <div class="agency">Crafted with digital excellence by <strong>Indra & Co.</strong></div>
+</footer>
+
+<button class="cart-fab" id="cartFab" onclick="openCart()">
+  <span>🛒</span>
+  <span id="cartFabText">View Order</span>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <div class="cart-drawer-title">🛒 Current Order Tray</div>
+    <button class="cart-close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items-list" id="cartItemsList">
+    <div class="cart-empty" id="cartEmpty">
+      <p>Your order tray is completely empty.<br>Select premium menu items to begin.</p>
+    </div>
+  </div>
+
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <input class="cart-table-input" id="tableNumber" type="text" placeholder="Specify Table Number / Spot Location">
+    <div class="cart-total-row">
+      <div style="font-size:14px; text-transform:uppercase; color:var(--text-muted);">Grand Bill</div>
+      <div class="cart-total-price" id="cartTotal">£0.00</div>
+    </div>
+    <button class="cart-whatsapp-btn" onclick="checkout()">
+      <span>💬</span>
+      Transmit Order via WhatsApp
+    </button>
+  </div>
+</div>
+
+<div class="upsell-overlay" id="upsellOverlay">
+  <div class="upsell-popup">
+    <div class="upsell-salesman">
+      <div class="upsell-avatar">👨‍🍳</div>
+      <div class="upsell-speech">
+        <div class="upsell-speech-text" id="upsellSpeechText">"Would you like to complete your order experience with our frequent pairings?"</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-bottom:20px;">
+      <div id="upsellItemName" style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600;">Item Name</div>
+      <div id="upsellItemPrice" style="color:var(--gold); font-weight:600; font-size:16px;">£0.00</div>
+    </div>
+    <div class="upsell-options" id="upsellOptions"></div>
+    <div class="upsell-actions">
+      <button class="upsell-skip" onclick="confirmUpsell(false)">Skip</button>
+      <button class="upsell-add" id="upsellAddBtn" onclick="confirmUpsell(true)">Add to Cart ✨</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// CART ARCHITECTURE VARIABLES
+const OWNER_WHATSAPP = '917738860171'; 
+let cart = [];
+let upsellPending = null;
+
+// ENGINE UPSELL STRUCTURING DATA
+const upsellData = {
+  egg: {
+    speech: '"Excellent breakfast selection! Add a premium hot beverage to your morning?"',
+    options: [
+      { emoji: '☕', name: 'Fresh Ground Latte', price: 3.00 },
+      { emoji: '🫖', name: 'PG Tips English Tea', price: 1.95 },
+      { emoji: '🥔', name: 'Extra Crispy Hash Brown Extra', price: 0.85 }
+    ]
+  },
+  sandwich: {
+    speech: '"Great choice! Would you like to complete this with a cold beachfront drink or side?"',
+    options: [
+      { emoji: '🥔', name: 'Side Portion of Chips', price: 3.95 },
+      { emoji: '🥤', name: 'Cold Draught Cola Pint', price: 2.95 },
+      { emoji: '🍺', name: 'Ice Cold Peroni Half Pint', price: 2.95 }
+    ]
+  }
+};
+
+// MULTI-SIZE CARD DYNAMIC CONTROLLER
+function updateCardPrice(button, price, suffix) {
+  const card = button.closest('.menu-card');
+  card.dataset.price = price;
+  if(suffix !== undefined) {
+    card.dataset.suffix = suffix;
+  }
+  const priceDisplay = card.querySelector('.card-price');
+  priceDisplay.textContent = '£' + price.toFixed(2);
+  
+  const pills = button.parentNode.querySelectorAll('.size-pill');
+  pills.forEach(p => p.classList.remove('active'));
+  button.classList.add('active');
+}
+
+// MULTIPLE PAIRING BUTTON LOGIC
+function updateUpsellButton() {
+  const btn = document.getElementById('upsellAddBtn');
+  const count = upsellPending.addons.length;
+  if (count === 0) {
+    btn.textContent = "Add to Cart ✨";
+  } else {
+    btn.textContent = `Pair with ${count} Item${count > 1 ? 's' : ''} ✨`;
+  }
+}
+
+function openUpsell(btn) {
+  const card = btn.closest('[data-name]');
+  const baseName = card.dataset.name;
+  const suffix = card.dataset.suffix || '';
+  const name = baseName + suffix;
+  const price = parseFloat(card.dataset.price);
+  const type = card.dataset.type || 'egg';
+  const data = upsellData[type] || upsellData.egg;
+
+  upsellPending = { name, price, addons: [] };
+
+  document.getElementById('upsellSpeechText').textContent = data.speech;
+  document.getElementById('upsellItemName').textContent = name;
+  document.getElementById('upsellItemPrice').textContent = '£' + price.toFixed(2);
+
+  const optContainer = document.getElementById('upsellOptions');
+  optContainer.innerHTML = '';
+  data.options.forEach(opt => {
+    const div = document.createElement('div');
+    div.className = 'upsell-option';
+    div.innerHTML = `
+      <div class="upsell-option-left">
+        <span>${opt.emoji}</span>
+        <span>${opt.name}</span>
+      </div>
+      <span style="color:var(--gold); font-weight:600;">+£${opt.price.toFixed(2)}</span>
+    `;
+    div.onclick = () => {
+      div.classList.toggle('selected');
+      const exists = upsellPending.addons.findIndex(a => a.name === opt.name);
+      if (exists > -1) {
+        upsellPending.addons.splice(exists, 1);
+      } else {
+        upsellPending.addons.push(opt);
+      }
+      updateUpsellButton();
+    };
+    optContainer.appendChild(div);
+  });
+
+  updateUpsellButton();
+  document.getElementById('upsellOverlay').classList.add('open');
+}
+
+function confirmUpsell(withAddons) {
+  document.getElementById('upsellOverlay').classList.remove('open');
+  if (!upsellPending) return;
+  const { name, price, addons } = upsellPending;
+  
+  if (withAddons && addons.length > 0) {
+    const combinedName = addons.map(a => a.name).join(' + ');
+    const combinedPrice = addons.reduce((sum, a) => sum + a.price, 0);
+    addToCart(name, price, combinedName, combinedPrice);
+  } else {
+    addToCart(name, price, null, 0);
+  }
+  upsellPending = null;
+}
+
+function addToCart(name, price, addonName, addonPrice) {
+  const id = name + (addonName || '');
+  const existing = cart.find(i => i.id === id);
+  const total = price + (addonPrice || 0);
+
+  if (existing) { 
+    existing.qty++; 
+  } else { 
+    cart.push({ 
+      id, 
+      name, 
+      price, 
+      addonName, 
+      addonPrice: addonPrice || 0, 
+      total, 
+      qty: 1, 
+      servingSequence: 'Serve Together (Mains)' // Default sequence
+    }); 
+  }
+
+  renderCart();
+  updateFab();
+  showToast(`Added: ${addonName ? name + ' + ' + addonName : name}`);
+}
+
+function addDrinkToCart(name, price, emoji) {
+  addToCart(name, price, null, 0);
+  showToast(`${emoji} ${name} added!`);
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) { cart = cart.filter(i => i.id !== id); }
+  renderCart();
+  updateFab();
+}
+
+function updateSequence(id, newSequence) {
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.servingSequence = newSequence;
+  }
+}
+
+function renderCart() {
+  const list = document.getElementById('cartItemsList');
+  const empty = document.getElementById('cartEmpty');
+  const footer = document.getElementById('cartFooter');
+
+  Array.from(list.querySelectorAll('.cart-item')).forEach(el => el.remove());
+
+  if (cart.length === 0) {
+    empty.style.display = 'block';
+    footer.style.display = 'none';
+    return;
+  }
+
+  empty.style.display = 'none';
+  footer.style.display = 'block';
+
+  let totalPrice = 0;
+  cart.forEach(item => {
+    totalPrice += item.total * item.qty;
+    const safeId = item.id.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        ${item.addonName ? `<div class="cart-item-addon">+ ${item.addonName}</div>` : ''}
+        <div class="cart-item-price">£${item.total.toFixed(2)} each</div>
+        
+        <select class="cart-item-sequence" onchange="updateSequence('${safeId}', this.value)">
+          <option value="Served First (Starters/Drinks)" ${item.servingSequence === 'Served First (Starters/Drinks)' ? 'selected' : ''}>Serve First (Starters/Drinks)</option>
+          <option value="Serve Together (Mains)" ${item.servingSequence === 'Serve Together (Mains)' ? 'selected' : ''}>Serve Together (Mains)</option>
+          <option value="Serve with Mains" ${item.servingSequence === 'Serve with Mains' ? 'selected' : ''}>Serve with Mains</option>
+          <option value="Serve Last (Desserts/Drinks)" ${item.servingSequence === 'Serve Last (Desserts/Drinks)' ? 'selected' : ''}>Serve Last (Desserts/Drinks)</option>
+        </select>
+
+      </div>
+      <div class="cart-item-controls">
+        <button class="qty-btn minus" onclick="changeQty('${safeId}', -1)">−</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn plus" onclick="changeQty('${safeId}', 1)">+</button>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+  document.getElementById('cartTotal').textContent = '£' + totalPrice.toFixed(2);
+}
+
+function updateFab() {
+  const fab = document.getElementById('cartFab');
+  const badge = document.getElementById('cartBadge');
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+
+  badge.textContent = total;
+  if (total === 0) { fab.classList.remove('visible'); } 
+  else { fab.classList.add('visible'); }
+  document.getElementById('cartFabText').textContent = total === 1 ? 'View Order' : `View Order (${total})`;
+}
+
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+}
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+}
+
+// PREMIUM WHATSAPP AUTO-REDIRECT SYSTEM WITH SERVING SEQUENCE
+function checkout() {
+  if (cart.length === 0) return;
+  const tableNum = document.getElementById('tableNumber').value.trim() || 'Not Specified';
+  const grandTotal = cart.reduce((s, i) => s + i.total * i.qty, 0);
+
+  // Group items by sequence
+  const groups = {
+    "Served First (Starters/Drinks)": { emoji: "🔥", items: [] },
+    "Serve Together (Mains)": { emoji: "🍽️", items: [] },
+    "Serve with Mains": { emoji: "🥗", items: [] },
+    "Serve Last (Desserts/Drinks)": { emoji: "🍰", items: [] }
+  };
+
+  cart.forEach(item => {
+    let seq = item.servingSequence || "Serve Together (Mains)";
+    if (groups[seq]) groups[seq].items.push(item);
+  });
+
+  let message = `🌊 *WEST BAY CAFE & BEACH BAR* \n--------------------------------\n*Table / Spot:* ${tableNum}\n\n`;
+
+  for (let key in groups) {
+    if (groups[key].items.length > 0) {
+      message += `${groups[key].emoji} *${key.toUpperCase()}:*\n`;
+      groups[key].items.forEach(item => {
+        let line = `• ${item.qty}x ${item.name}`;
+        if (item.addonName) line += ` + ${item.addonName}`;
+        line += ` — £${(item.total * item.qty).toFixed(2)}`;
+        message += line + '\n';
+      });
+      message += '\n';
+    }
+  }
+
+  message += `--------------------------------\n*Total Bill Amount:* £${grandTotal.toFixed(2)}\n\n*Status:* Order Requested via Digital QR Menu`;
+
+  const waURL = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(message)}`;
+  window.open(waURL, '_blank');
+
+  cart = [];
+  renderCart();
+  updateFab();
+  closeCart();
+  document.getElementById('tableNumber').value = '';
+  showToast(`Order compiled & transmitted!`);
+}
+
+function scrollToSection(id, e) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    if (e && e.target) e.target.classList.add('active');
+  }
+}
+
+function filterMenu() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.menu-card');
+  const drinks = document.querySelectorAll('.drink-card');
+  let found = 0;
+
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    const show = !q || name.includes(q);
+    card.style.display = show ? '' : 'none';
+    if (show) found++;
+  });
+
+  drinks.forEach(drink => {
+    const name = drink.dataset.name.toLowerCase();
+    const show = !q || name.includes(q);
+    drink.style.display = show ? '' : 'none';
+    if (show) found++;
+  });
+
+  document.querySelectorAll('section').forEach(sec => {
+    const regularCardsVisible = [...sec.querySelectorAll('.menu-card')].some(c => c.style.display !== 'none');
+    const drinkCardsVisible = [...sec.querySelectorAll('.drink-card')].some(d => d.style.display !== 'none');
+    sec.style.display = (regularCardsVisible || drinkCardsVisible) ? '' : 'none';
+  });
+
+  document.getElementById('noResults').style.display = found === 0 ? 'block' : 'none';
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// SCROLLSPY CORE LOGIC 
+const sections = ['breakfast','mains','lighter','kids','waffles','hot-drinks','plant-based','cold-drinks','alcohol'];
+const navBtns = document.querySelectorAll('.nav-btn');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 100) current = id;
+  });
+  navBtns.forEach((btn, i) => {
+    btn.classList.toggle('active', sections[i] === current);
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
